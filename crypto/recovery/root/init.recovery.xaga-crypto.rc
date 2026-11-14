@@ -1,0 +1,53 @@
+on fs
+    exec_start xaga-recovery-modules
+    install_keyring
+    mkdir /tmp/misc/keystore 0700 keystore keystore
+    mkdir /mnt/xaga_vendor 0755 root root
+    mkdir /mnt/vendor/persist 0755 root root
+    exec_start xaga-map-vendor
+    mount_all /system/etc/fstab.xaga-crypto
+    exec_start xaga-crypto-prepare
+
+on property:xaga.crypto.ready=1
+    start hwservicemanager
+    start servicemanager
+    start teei_daemon
+    start vendor.gatekeeper-1-0
+    start vendor.keymint-beanpod
+    start keystore2
+
+service xaga-crypto-prepare /system/bin/sh /system/bin/prepare-xaga-crypto.sh
+    disabled
+    oneshot
+    user root
+    group root
+    seclabel u:r:recovery:s0
+
+service teei_daemon /vendor/bin/teei_daemon
+    disabled
+    user root
+    group root system drmrpc
+    capabilities SYS_RAWIO
+    seclabel u:r:recovery:s0
+
+service vendor.keymint-beanpod /vendor/bin/hw/android.hardware.security.keymint@1.0-service.beanpod
+    disabled
+    user root
+    group root system drmrpc
+    setenv LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
+    seclabel u:r:recovery:s0
+
+service vendor.gatekeeper-1-0 /system/bin/android.hardware.gatekeeper@1.0-service
+    interface android.hardware.gatekeeper@1.0::IGatekeeper default
+    disabled
+    user root
+    group root system
+    setenv LD_LIBRARY_PATH /system/lib64:/system/lib64/hw:/vendor/lib64:/vendor/lib64/hw
+    seclabel u:r:recovery:s0
+
+service xaga-map-vendor /system/bin/xaga_map_vendor
+    disabled
+    oneshot
+    user root
+    group root
+    seclabel u:r:recovery:s0
