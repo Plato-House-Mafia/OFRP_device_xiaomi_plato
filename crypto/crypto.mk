@@ -13,5 +13,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.mtk_tee_gp_support=1 \
     ro.vendor.mtk_microtrust_tee_support=1
 
-PRODUCT_PACKAGES += xaga_map_vendor
-TARGET_RECOVERY_DEVICE_MODULES += xaga_map_vendor
+PRODUCT_PACKAGES += plato_map_vendor
+TARGET_RECOVERY_DEVICE_MODULES += plato_map_vendor

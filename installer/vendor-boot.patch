@@ -4,7 +4,7 @@
  	   ui_print "- NOTE: vendor_boot-as-recovery is highly experimental! Do not use unless you are absolutely sure that it will not cause problems!"
  
  	   # replace the entire vendor_boot partition ?
-+	   [ "$FOX_INSTALLER_VENDOR_BOOT_RAMDISK_INSTALL" = 1 ] || abort "xaga requires ramdisk-only installation"
++	   [ "$FOX_INSTALLER_VENDOR_BOOT_RAMDISK_INSTALL" = 1 ] || abort "plato requires ramdisk-only installation"
  	   local no_ramdisk_only=0
  	   [ "$FOX_INSTALLER_VENDOR_BOOT_RAMDISK_INSTALL" != "1" ] && no_ramdisk_only=1
  

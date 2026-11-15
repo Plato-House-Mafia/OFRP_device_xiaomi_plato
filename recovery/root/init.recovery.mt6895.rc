@@ -1,4 +1,4 @@
-import /init.recovery.xaga-crypto.rc
+import /init.recovery.plato-crypto.rc
 
 on init
     setprop sys.usb.configfs 1
@@ -10,7 +10,7 @@ on boot
     start health-hal-2-1
     setprop sys.usb.config adb
 
-service xaga-recovery-modules /system/bin/sh /system/bin/load-recovery-modules.sh
+service plato-recovery-modules /system/bin/sh /system/bin/load-recovery-modules.sh
     disabled
     oneshot
     user root

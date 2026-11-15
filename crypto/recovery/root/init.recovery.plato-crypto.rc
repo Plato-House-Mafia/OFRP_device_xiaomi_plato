@@ -1,14 +1,14 @@
 on fs
-    exec_start xaga-recovery-modules
+    exec_start plato-recovery-modules
     install_keyring
     mkdir /tmp/misc/keystore 0700 keystore keystore
-    mkdir /mnt/xaga_vendor 0755 root root
+    mkdir /mnt/plato_vendor 0755 root root
     mkdir /mnt/vendor/persist 0755 root root
-    exec_start xaga-map-vendor
-    mount_all /system/etc/fstab.xaga-crypto
-    exec_start xaga-crypto-prepare
+    exec_start plato-map-vendor
+    mount_all /system/etc/fstab.plato-crypto
+    exec_start plato-crypto-prepare
 
-on property:xaga.crypto.ready=1
+on property:plato.crypto.ready=1
     start hwservicemanager
     start servicemanager
     start teei_daemon
@@ -16,7 +16,7 @@ on property:xaga.crypto.ready=1
     start vendor.keymint-beanpod
     start keystore2
 
-service xaga-crypto-prepare /system/bin/sh /system/bin/prepare-xaga-crypto.sh
+service plato-crypto-prepare /system/bin/sh /system/bin/prepare-plato-crypto.sh
     disabled
     oneshot
     user root
@@ -45,7 +45,7 @@ service vendor.gatekeeper-1-0 /system/bin/android.hardware.gatekeeper@1.0-servic
     setenv LD_LIBRARY_PATH /system/lib64:/system/lib64/hw:/vendor/lib64:/vendor/lib64/hw
     seclabel u:r:recovery:s0
 
-service xaga-map-vendor /system/bin/xaga_map_vendor
+service plato-map-vendor /system/bin/plato_map_vendor
     disabled
     oneshot
     user root

@@ -1,5 +1,5 @@
 cc_binary {
-    name: "xaga_map_vendor",
+    name: "plato_map_vendor",
     recovery: true,
     srcs: ["map_vendor.cpp"],
     shared_libs: ["libbase", "liblog", "libfs_mgr"],

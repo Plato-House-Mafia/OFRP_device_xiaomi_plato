@@ -27,10 +27,10 @@ int main() {
             return 1;
         }
     }
-    if (mount(path.c_str(), "/mnt/xaga_vendor", "erofs", MS_RDONLY, nullptr) != 0 &&
-        mount(path.c_str(), "/mnt/xaga_vendor", "ext4", MS_RDONLY, "noload") != 0) {
+    if (mount(path.c_str(), "/mnt/plato_vendor", "erofs", MS_RDONLY, nullptr) != 0 &&
+        mount(path.c_str(), "/mnt/plato_vendor", "ext4", MS_RDONLY, "noload") != 0) {
         PLOG(ERROR) << "Cannot mount " << name;
-        return 1;
-    }
-    return 0;
+    return 1;
+        }
+        return 0;
 }

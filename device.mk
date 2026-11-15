@@ -13,8 +13,8 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/xiaomi/xaga
-PRODUCT_SHIPPING_API_LEVEL := 31
+DEVICE_PATH := device/xiaomi/plato
+PRODUCT_SHIPPING_API_LEVEL := 32
 PRODUCT_TARGET_VNDK_VERSION := 31
 
 AB_OTA_UPDATER := true

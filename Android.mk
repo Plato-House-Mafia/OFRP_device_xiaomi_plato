@@ -16,6 +16,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),xaga)
+ifeq ($(TARGET_DEVICE),plato)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 endif

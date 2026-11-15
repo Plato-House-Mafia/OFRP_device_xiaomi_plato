@@ -26,15 +26,15 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression.mk)
 
-$(call inherit-product, device/xiaomi/xaga/device.mk)
+$(call inherit-product, device/xiaomi/plato/device.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
-PRODUCT_DEVICE := xaga
-PRODUCT_NAME := twrp_xaga
+PRODUCT_DEVICE := plato
+PRODUCT_NAME := twrp_plato
 PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := POCO X4 GT
+PRODUCT_MODEL := Xiaomi 12T
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_RELEASE_NAME := POCO X4 GT / Redmi Note 11T Pro
+PRODUCT_RELEASE_NAME := Xiaomi 12T
 
 PRODUCT_PROPERTY_OVERRIDES += ro.twrp.vendor_boot=true
