@@ -2,5 +2,6 @@ cc_binary {
     name: "xaga_map_vendor",
     recovery: true,
     srcs: ["map_vendor.cpp"],
-    shared_libs: ["libbase", "liblog", "libfs_mgr", "libdm"],
+    shared_libs: ["libbase", "liblog", "libfs_mgr"],
+    static_libs: ["libdm"],
 }
