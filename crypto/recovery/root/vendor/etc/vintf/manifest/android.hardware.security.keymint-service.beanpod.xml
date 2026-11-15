@@ -2,5 +2,6 @@
 	<hal format="aidl">
 		<name>android.hardware.security.keymint</name>
 		<fqname>IKeyMintDevice/default</fqname>
+		<fqname>IRemotelyProvisionedComponent/default</fqname>
 	</hal>
 </manifest>
